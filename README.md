@@ -168,6 +168,9 @@ C:.
 
 > Melhor qualitativamente: Qwen2-0.5B
 > Melhor quantitativamente: Flan-T5-Small
+
+<a name="demo"></a>
+
 ## Demo do Projeto
 A próxima demonstração designa a funcionalidade a qual a aplicação conseguiu desenvolver no modelo Qwen2-0.5B, sem nenhuma alucinação, tudo com base no que estava documentado
 no PDF disponível na pasta ./docs/
@@ -175,7 +178,6 @@ no PDF disponível na pasta ./docs/
 
 Mais abaixo, está presente o teste da aplicação agora empregado aos modelos BART, Flan-T5-small e GPT-Neo-125M. Notei que o BART alucinou e por isso decidi descartar a possibilidade de usar ele como modelo principal deste trabalho. O modelo Flan-T5-small por ter uma base menor, escreveu uma pequena resposta como é possível ver na demonstração a seguir e o GPT-neo-125M conseguiu trazer a resposta de forma adequada também ao projeto.
 
-<a name="demo"></a>
 ![Demo](./demonstracao%20teste%20Demo%20modelos.gif)
 
 Um passo importante para um projeto envolvendo um chat IA inteligente é conectar API para que haja a comunicação na arquitetura cliente servidor, com isso, trago a demonstração da API funcionando mais abaixo.
