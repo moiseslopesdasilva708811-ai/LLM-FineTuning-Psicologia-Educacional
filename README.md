@@ -107,8 +107,6 @@ C:.
 ```
 ### Descrição das Pastas
 
-<div align="center">
-
 
 | Pasta        | Descrição                                                                                                        |
 | ------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -119,8 +117,6 @@ C:.
 | `notebooks/` | Notebooks contendo os experimentos de RAG, Fine-Tuning com LoRA e avaliação dos modelos treinados.               |
 | `static/`    | Interface Web da aplicação.                                                                                      |
 | `train/`    | Modelos treinados e seus formatos .JSONL                                                                          |
-
-<div>
     
 ```
 ```
