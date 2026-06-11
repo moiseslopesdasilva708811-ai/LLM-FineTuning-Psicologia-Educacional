@@ -20,9 +20,7 @@ __pycache__/
 *.pyd
 .pytest_cache/
 
-# Arquivos de Dados e PDFs (Pesados/Locais)
-*.pdf
-20260042690.pdf
+# Arquivos de Dados(Pesados/Locais)
 *.jsonl
 dataset_causal.jsonl
 dataset_seq2seq.jsonl
