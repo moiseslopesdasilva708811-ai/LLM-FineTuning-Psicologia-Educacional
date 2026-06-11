@@ -1,20 +1,20 @@
 # Projeto de Fine-Tuning e Avaliação de Modelos LLM com LoRA especializado em Psicologia Educacional
 
 <p align="center">
-  <a href="#-objetivos">
-    <img src="https://img.shields.io/badge/🎯_Objetivos-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
+  <a href="#objetivos">
+    <img src="https://img.shields.io/badge/🎯_Objetivos-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
   </a>
-  <a href="#-estrutura-do-projeto">
-    <img src="https://img.shields.io/badge/📂_Estrutura-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
+  <a href="#estrutura">
+    <img src="https://img.shields.io/badge/📂_Estrutura-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Estrutura">
   </a>
-  <a href="#-como-rodar">
-    <img src="https://img.shields.io/badge/🚀_Como_Rodar-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
+  <a href="#setup">
+    <img src="https://img.shields.io/badge/🚀_Setup-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Setup">
   </a>
-  <a href="#-benchmarking--resultados">
-    <img src="https://img.shields.io/badge/📊_Benchmarks-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
+  <a href="#benchmarks">
+    <img src="https://img.shields.io/badge/📊_Benchmarks-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Benchmarks">
   </a>
-  <a href="#-autor">
-    <img src="https://img.shields.io/badge/👤_Autor-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
+  <a href="#autor">
+    <img src="https://img.shields.io/badge/👤_Autor-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Autor">
   </a>
 </p>
 
