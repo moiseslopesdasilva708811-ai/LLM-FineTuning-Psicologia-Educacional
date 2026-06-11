@@ -30,9 +30,8 @@ dataset.jsonl
 
 # Resultados, Gráficos e Tabelas Geradas
 
-*.csv
+
 avaliacao_metricas.png
-resultados_gerados.csv
 
 # Checkpoints pesados do treinamento (Pastas de modelos)
 results/
