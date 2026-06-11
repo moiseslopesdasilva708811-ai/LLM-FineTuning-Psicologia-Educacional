@@ -101,7 +101,7 @@ C:.
 | `images/`    | Diagramas, fluxogramas e gráficos gerados durante os experimentos e avaliações dos modelos.                      |
 | `notebooks/` | Notebooks contendo os experimentos de RAG, Fine-Tuning com LoRA e avaliação dos modelos treinados.               |
 | `static/`    | Interface Web da aplicação.                                                                                      |
-| `train/`    | Modelos treinados e seus formatos .JSONL.                                                                         |
+| `train/`    | Modelos treinados e seus formatos .JSONL                                                                          |
 
 ```
 ```
