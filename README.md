@@ -99,7 +99,7 @@ C:.
             tokenizer_config.json
             ...
 ```
-
+<div align="center">
 ### Descrição das Pastas
 
 | Pasta        | Descrição                                                                                                        |
@@ -112,6 +112,8 @@ C:.
 | `static/`    | Interface Web da aplicação.                                                                                      |
 | `train/`    | Modelos treinados e seus formatos .JSONL                                                                          |
 
+<div>
+    
 ```
 ```
 
