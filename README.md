@@ -5,7 +5,7 @@
 > [!TIP]
 > **Precisa de ajuda com o código?** Acesse a pasta `./notebooks/` para encontrar um guia modular e detalhado sobre todo o fluxo de implementação deste projeto.
 
-> [!Observação]
+> [!NOTE]
 > Ao final deste README, você estará apto a clonar, configurar e rodar todo o sistema. Gratidão por seu interesse neste projeto!
 
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
@@ -212,7 +212,8 @@ Formato esperado:
 
 ## Visão Geral
 
-Este experimento teve como objetivo avaliar o desempenho de diferentes modelos de linguagem em uma tarefa de geração textual, utilizando métricas amplamente empregadas na literatura de Processamento de Linguagem Natural (NLP).
+> [!NOTE]
+> Este experimento teve como objetivo avaliar o desempenho de diferentes modelos de linguagem em uma tarefa de geração textual, utilizando métricas amplamente empregadas na literatura de Processamento de Linguagem Natural (NLP).
 
 Foram avaliados os seguintes modelos:
 
@@ -230,7 +231,7 @@ As métricas utilizadas foram:
 ---
 
 # Resultados
-Observei cada ponto gerado nesses notebooks em que as análises foram precisas e cheguei a um modelo campeão, siga a leitura.
+Observei cada ponto gerado nesses notebooks em que as análises foram precisas e cheguei a um modelo campeão que nesse caso foi o Flan T5 Small, siga a leitura.
 
 ## Tabela Comparativa
 
