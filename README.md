@@ -1,20 +1,20 @@
 # Projeto de Fine-Tuning e Avaliação de Modelos LLM com LoRA especializado em Psicologia Educacional
 
-<p align="center">
+<p align="center" position="fixed">
   <a href="#objetivos">
-    <img src="https://img.shields.io/badge/🎯_Objetivos-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
+    <img src="https://img.shields.io/badge/_Objetivos-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
   </a>
   <a href="#estrutura">
-    <img src="https://img.shields.io/badge/📂_Estrutura-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Estrutura">
+    <img src="https://img.shields.io/badge/_Estrutura-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Estrutura">
   </a>
-  <a href="#setup">
-    <img src="https://img.shields.io/badge/🚀_Setup-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Setup">
+  <a href="#demo">
+    <img src="https://img.shields.io/badge/_Setup-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Setup">
   </a>
   <a href="#benchmarks">
-    <img src="https://img.shields.io/badge/📊_Benchmarks-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Benchmarks">
+    <img src="https://img.shields.io/badge/_Benchmarks-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Benchmarks">
   </a>
   <a href="#autor">
-    <img src="https://img.shields.io/badge/👤_Autor-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Autor">
+    <img src="https://img.shields.io/badge/_Autor-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Autor">
   </a>
 </p>
 
@@ -141,8 +141,8 @@ C:.
 ```
 
 ---
-
-## 🎯 Objetivos
+<a name="objetivos"></a>
+## Objetivos
 
 - Realizar Fine-Tuning de modelos LLM utilizando LoRA.
 - Comparar diferentes arquiteturas:
@@ -174,6 +174,7 @@ no PDF disponível na pasta ./docs/
 
 Mais abaixo, está presente o teste da aplicação agora empregado aos modelos BART, Flan-T5-small e GPT-Neo-125M. Notei que o BART alucinou e por isso decidi descartar a possibilidade de usar ele como modelo principal deste trabalho. O modelo Flan-T5-small por ter uma base menor, escreveu uma pequena resposta como é possível ver na demonstração a seguir e o GPT-neo-125M conseguiu trazer a resposta de forma adequada também ao projeto.
 
+<a name="demo"></a>
 ![Demo](./demonstracao%20teste%20Demo%20modelos.gif)
 
 Um passo importante para um projeto envolvendo um chat IA inteligente é conectar API para que haja a comunicação na arquitetura cliente servidor, com isso, trago a demonstração da API funcionando mais abaixo.
