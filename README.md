@@ -2,19 +2,19 @@
 
 <p align="center">
   <a href="#-objetivos">
-    <img src="https://img.shields.io/badge/🎯_Objetivos-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b" alt="Objetivos">
+    <img src="https://img.shields.io/badge/🎯_Objetivos-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
   </a>
   <a href="#-estrutura-do-projeto">
-    <img src="https://img.shields.io/badge/📂_Estrutura-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b" alt="Estrutura">
+    <img src="https://img.shields.io/badge/📂_Estrutura-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
   </a>
   <a href="#-como-rodar">
-    <img src="https://img.shields.io/badge/🚀_Setup-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b" alt="Setup">
+    <img src="https://img.shields.io/badge/🚀_Como_Rodar-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
   </a>
   <a href="#-benchmarking--resultados">
-    <img src="https://img.shields.io/badge/📊_Benchmarks-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b" alt="Benchmarks">
+    <img src="https://img.shields.io/badge/📊_Benchmarks-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
   </a>
   <a href="#-autor">
-    <img src="https://img.shields.io/badge/👤_Autor-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b" alt="Autor">
+    <img src="https://img.shields.io/badge/👤_Autor-ffffff?style=for-the-badge&logoColor=000000&labelColor=2b2b2b&color=2b2b2b">
   </a>
 </p>
 
