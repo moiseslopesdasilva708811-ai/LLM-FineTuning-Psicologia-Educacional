@@ -490,17 +490,8 @@ Este arquivo contém um conjunto estruturado de instruções e perguntas formata
     - Influência de métodos experimentais (Wundt) na psicologia.
     - Dinâmicas familiares e competências socioemocionais.
 
-### 2. `dataset_treino.jsonl`
-Focado na explicabilidade teórica, este arquivo contém pares de entrada e saída para tarefas de explicação de conceitos.
-- **Formato:** `{"instruction": "...", "input": "...", "output": "..."}`
-- **Conteúdo:** Trechos teóricos sobre Behaviorismo, Pavlov, Condicionamento, Abordagens Cognitivistas (Ausubel, Bruner, Vygotsky) e Processamento de Informação.
-
-### 3. `dataset_final.jsonl`
-Contém metadados bibliográficos e estruturais do material base da disciplina.
-- **Formato:** `{"Instruction": "...", "Output": "..."}`
-- **Conteúdo:** Informações sobre o livro "Psicologia Educacional: desenvolvimento e aprendizagem" de Nicia L. D. da Silveira, incluindo equipe de coordenação e metadados de catálogo.
-
-
+### 2. `dataset_gerado_curado` realizado por CURADORIA MANUAL
+- Utilizado para treinamento de todo o modelo
 ## 🌐 API FastAPI
 
 O servidor principal encontra-se em:
