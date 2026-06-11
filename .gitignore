@@ -1,0 +1,47 @@
+# Ambiente Virtual
+.venv-1/
+venv/
+ENV/
+
+__pycache__/
+*.pyc
+
+# Pastas de modelos a serem ignoradas
+lora_seq2seq_model_1/
+lora_tiny_bart_final/
+modelo_final/
+modelo_final_lora/
+
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Arquivos de Dados e PDFs (Pesados/Locais)
+*.pdf
+20260042690.pdf
+*.jsonl
+dataset_causal.jsonl
+dataset_seq2seq.jsonl
+dataset.jsonl
+
+# Resultados, Gráficos e Tabelas Geradas
+
+*.csv
+avaliacao_metricas.png
+resultados_gerados.csv
+
+# Checkpoints pesados do treinamento (Pastas de modelos)
+results/
+checkpoint-*/
+lora_finetuned_model/
+distilgpt2_tokenizer/
+
+# Configurações do VS Code (Opcional, tire o '#' se quiser ocultar)
+#.vscode/
+
+# Forçar a inclusão da pasta de treino
+!train/

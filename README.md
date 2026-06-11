@@ -1,0 +1,605 @@
+# Projeto de Fine-Tuning e Avaliação de Modelos LLM com LoRA especializado em Psicologia Educacional
+
+Este projeto tem como objetivo realizar o treinamento, ajuste fino (Fine-Tuning) e avaliação de modelos de linguagem utilizando a técnica **LoRA (Low-Rank Adaptation)**, permitindo adaptar modelos pré-treinados para tarefas específicas de forma eficiente. Em qualquer dúvida sobre procedimentos de códigos utilizados, deixei aqui presente na pasta ./notebooks/ todo o processo que utilizei para deixar os códigos modulares e limpos explicados para uma melhor compreensão.
+
+---
+
+### Tecnologias e Ferramentas
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![FastAPI](https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=fastapi&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FF9D00?style=for-the-badge&logo=huggingface&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+
+#### IA & Machine Learning
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+
+---
+
+## Material usado para treinamento do projeto
+![Referencial Teórico](images/Rerencia.png)
+
+## Estrutura do Projeto
+
+```text
+/
+├── dataset/
+│   └── dataset_gerado.jsonl      # Primeira Extração de dados do dataset
+│   └── dataset_treino.jsonl      # Dataset de treinamento em formato JSONL
+│
+├── images/
+│   └── grafico_bart_tiny.png      # Gráfico de Convergência do modelo Bart-Tiny
+│   └── grafico_Flat_T5_Small.png      # Gráfico de Convergência do modelo Flat-T5-Small
+│   └── grafico_gpt_neo.png      # Gráfico de Convergência do modelo GPT-Neo-125M
+│   └── grafico_Qwen.png      # Gráfico de Convergência do modelo Qwen2-0.5B
+├── train/
+│   ├── modelo_final_lora/        # Adaptadores LoRA treinados (Qwen2-0.5B)
+│   │   ├── adapter_config.json
+│   │   └── adapter_model.safetensors
+│   │
+│   ├── modelo_final/             # Adaptadores LoRA treinados (GPT-Neo-125M)
+│   │   ├── adapter_config.json
+│   │   └── adapter_model.safetensors
+│   │
+│   ├── lora_tiny_bart_final/     # Adaptadores LoRA treinados (BART)
+│   │   ├── adapter_config.json
+│   │   └── adapter_model.safetensors
+│   │
+│   └── lora_seq2seq_model_1/     # Modelo FLAN-T5-small ajustado
+│       ├── adapter_config.json
+│       ├── adapter_model.safetensors
+│       ├── tokenizer.json
+│       └── tokenizer_config.json
+│
+├── static/
+│   └── index.html                # Interface Web (Front-End)
+│
+├── api                       # API FastAPI (Servidor principal)
+│   └── main.py   # Arquivo para integração da API com o servidor Frontend
+├── notebooks                      # Notebooks usados para o treinamento dos modelos selecionados para teste
+│   └── 01_rag.ipynb   # Notebook de ingestão e vetorização
+│   └── 02_lora.ipynb   # Notebook de Fine-Tuning com LoRA
+│   └── 03_avaliacao_modelo_finetuned.ipynb   # Benchmark e Avalição dos modelos
+├── requirements.txt              # Dependências do projeto
+└── README.md                     # Documentação
+```
+
+---
+
+## 🎯 Objetivos
+
+- Realizar Fine-Tuning de modelos LLM utilizando LoRA.
+- Comparar diferentes arquiteturas:
+  - Qwen2-0.5B
+  - GPT-Neo-125M
+  - BART
+  - FLAN-T5-small
+- Construir uma API para inferência utilizando FastAPI.
+- Avaliar desempenho dos modelos ajustados.
+- Integrar técnicas de RAG (Retrieval-Augmented Generation).
+
+
+---
+
+## Destaques do Projeto
+- **Arquitetura Híbrida:** Integração de *Retrieval-Augmented Generation* (RAG) com modelos especialistas via LoRA.
+- **Benchmark Rigoroso:** Análise quantitativa baseada em Perplexidade (PPL), ROUGE-L e BLEU.
+- **Eficiência Computacional:** Uso de adaptadores LoRA para reduzir o custo de inferência e treinamento.
+- **Modularidade:** API FastAPI pronta para produção com documentação Swagger integrada.
+
+### Análise Crítica do Melhor Modelo
+
+> O modelo Qwen2-0.5B, embora mais leve, demonstrou maior fidelidade aos conceitos de Psicologia Educacional após o ajuste LoRA, enquanto o GPT-Neo apresentou maior alucinação em contextos específicos. Mais para baixo neste README.md detalho melhor as avaliações dos modelos.
+## Demo do Projeto
+A próxima demonstração designa a funcionalidade a qual a aplicação conseguiu desenvolver no modelo Qwen2-0.5B, sem nenhuma alucinação, tudo com base no que estava documentado
+no PDF disponível na pasta ./docs/
+![Demo](./video%20Qwen%20model%20final.gif)
+
+Mais abaixo, está presente o teste da aplicação agora empregado aos modelos BART, Flan-T5-small e GPT-Neo-125M. Notei que o BART alucinou e por isso decidi descartar a possibilidade de usar ele como modelo principal deste trabalho. O modelo Flan-T5-small por ter uma base menor, escreveu uma pequena resposta como é possível ver na demonstração a seguir e o GPT-neo-125M conseguiu trazer a resposta de forma adequada também ao projeto.
+
+![Demo](./demonstracao%20teste%20Demo%20modelos.gif)
+
+Um passo importante para um projeto envolvendo um chat IA inteligente é conectar API para que haja a comunicação na arquitetura cliente servidor, com isso, trago a demonstração da API funcionando mais abaixo.
+
+![Demo](./FASTAPI%20funcionando.gif)
+
+## Gráficos de Convergência do treinamento dos modelos
+
+### Gráfico do Modelo Qwen2-0.5B
+![Gráfico Qwen](images/grafico_Qwen.png)
+
+### Gráfico do Modelo GPT-Neo-125M
+![Gráfico GPT-Neo](images/grafico_gpt_neo.png)
+
+### Gráfico do Modelo BART-Tiny
+![Gráfico Bart](images/grafico_bart_tiny.png)
+
+### Gráfico do Modelo FLAN-T5-Small
+![Gráfico T5](images/grafico_Flat_T5_Small.png)
+
+
+## Diagrama de Sequência da aplicação desenvolvida em questão
+
+<img src="images/Diagrama_de_sequência_da_Aplicação.png" width="700" alt="Gráfico de Loss do Qwen">
+
+## 📊 Dataset
+
+O conjunto de treinamento encontra-se em:
+
+```bash
+dataset/dataset_gerado.jsonl
+```
+
+Formato esperado:
+
+```json
+{
+  "instruction": "Pergunta do usuário",
+  "input": "",
+  "output": "Resposta esperada"
+}
+```
+
+---
+
+## 🧠 Modelos Utilizados
+
+| Modelo | Tipo | Finalidade |
+|----------|----------|----------|
+| Qwen2-0.5B | Causal LM | Chat e geração de texto |
+| GPT-Neo-125M | Causal LM | Benchmark leve |
+| BART | Seq2Seq | Resumo e geração condicional |
+| FLAN-T5-small | Seq2Seq | Perguntas e respostas |
+
+
+# Avaliação Comparativa de Modelos Base para Geração de Texto
+
+## Visão Geral
+
+Este experimento teve como objetivo avaliar o desempenho de diferentes modelos de linguagem em uma tarefa de geração textual, utilizando métricas amplamente empregadas na literatura de Processamento de Linguagem Natural (NLP).
+
+Foram avaliados os seguintes modelos:
+
+- Flan-T5-Small
+- BART-Tiny
+- Qwen2-0.5B
+- Pythia (EleutherAI)
+
+As métricas utilizadas foram:
+
+- **BLEU (Bilingual Evaluation Understudy)**
+- **ROUGE-L (Recall-Oriented Understudy for Gisting Evaluation)**
+- **Perplexidade (Perplexity)**
+
+---
+
+# Resultados
+Observei cada ponto gerado nesses notebooks em que as análises foram precisas e cheguei a um modelo campeão, siga a leitura.
+
+## Tabela Comparativa
+
+| Modelo (Base) | BLEU | ROUGE-L | Perplexidade |
+|---------------|------|----------|-------------:|
+| **Flan-T5-Small** | 0.0000 | **0.0080** | **1.66** |
+| **BART-Tiny** | 0.0000 | 0.0000 | 50253.99 |
+| **Qwen2-0.5B** | 0.0000 | 0.0000 | 27.22 |
+| **Pythia (EleutherAI)** | 0.0000 | 0.0034 | 2317.00 |
+
+---
+
+### Visualização de Performance (Gráfico Radar)
+
+O gráfico abaixo ilustra o equilíbrio entre as métricas de performance (estabilidade, precisão estrutural e fluidez linguística) para cada modelo:
+
+![Gráfico Radar de Desempenho](images/Gráfico_Radar.png)
+
+*O gráfico reforça a superioridade do Flan-T5-Small, que apresenta um polígono com maior área de cobertura nas métricas de menor incerteza (menor PPL) e maior precisão.*
+
+# Análise Técnica dos Resultados
+
+## 1. BLEU Score
+
+O BLEU Score apresentou valor **0.0000 para todos os modelos avaliados**.
+
+O BLEU mede a similaridade entre a saída gerada pelo modelo e uma resposta de referência através da correspondência de n-gramas. A ausência total de correspondência sugere que:
+
+- As respostas produzidas diferem significativamente das respostas de referência;
+- O conjunto de avaliação pode permitir múltiplas respostas semanticamente corretas;
+- A métrica não conseguiu capturar adequadamente a qualidade das gerações produzidas neste contexto específico.
+
+### Interpretação
+
+Embora o BLEU seja amplamente utilizado em tarefas de tradução automática, ele possui limitações em cenários de geração aberta, onde diferentes formulações podem representar respostas igualmente válidas.
+
+Dessa forma, o BLEU não forneceu poder discriminativo suficiente para diferenciar os modelos avaliados.
+
+---
+
+## 2. ROUGE-L
+
+O ROUGE-L mede a maior subsequência comum (Longest Common Subsequence) entre o texto gerado e a referência.
+
+### Resultados
+
+| Modelo | ROUGE-L |
+|----------|---------:|
+| Flan-T5-Small | **0.0080** |
+| GPT-NEO-125M | 0.0034 |
+| BART-Tiny | 0.0000 |
+| Qwen2-0.5B | 0.0000 |
+
+### Interpretação
+
+Os valores obtidos foram extremamente baixos, indicando baixa sobreposição estrutural entre as respostas geradas e as respostas esperadas.
+
+Mesmo assim, observa-se que:
+
+- O **Flan-T5-Small** apresentou o melhor resultado;
+- O **GPT-NEO-125M** demonstrou alguma correspondência residual;
+- **Qwen2-0.5B** e **BART-Tiny** não apresentaram alinhamento estrutural mensurável com as referências.
+
+Embora a diferença seja pequena em termos absolutos, o ROUGE-L reforça a superioridade relativa do Flan-T5-Small no conjunto avaliado.
+
+---
+
+## 3. Perplexidade
+
+A Perplexidade foi a métrica que apresentou maior capacidade de discriminação entre os modelos.
+
+### Resultados
+
+| Modelo | Perplexidade |
+|----------|-------------:|
+| Flan-T5-Small | **1.66** |
+| Qwen2-0.5B | 27.22 |
+| Pythia (EleutherAI) | 2317.00 |
+| BART-Tiny | 50253.99 |
+
+### Fundamentação Teórica documentada nesse processo
+
+A Perplexidade mede o grau de incerteza de um modelo ao prever a próxima palavra de uma sequência textual.
+
+Matematicamente:
+
+### Fórmula da Perplexidade
+### Fórmula da Perplexidade
+
+A perplexidade pode ser definida como:
+
+> **PPL = exp(-(1/N) × Σ log(P(wᵢ)))**
+
+Onde:
+
+- **N** representa o número total de tokens;
+- **P(wᵢ)** representa a probabilidade atribuída ao token correto;
+- **Σ** representa o somatório das probabilidades logarítmicas dos tokens da sequência.
+
+Quanto menor o valor da perplexidade, melhor a capacidade do modelo em prever a distribuição linguística dos dados.
+# Comparação Individual dos Modelos
+
+## 🥇 Flan-T5-Small
+
+### Destaques
+
+- Menor perplexidade do experimento (**1.66**);
+- Maior ROUGE-L;
+- Melhor estabilidade geral;
+- Melhor aderência ao conjunto avaliado.
+
+### Avaliação Técnica
+
+O modelo demonstrou excelente capacidade de modelagem linguística, apresentando baixa incerteza preditiva e desempenho consistentemente superior em todas as métricas relevantes.
+
+Os resultados sugerem que sua arquitetura encoder-decoder baseada em T5, aliada ao processo de instruction tuning realizado pelo Google, favoreceu significativamente sua adaptação à tarefa proposta.
+
+---
+
+## 🥈 Qwen2-0.5B
+
+### Destaques
+
+- Segunda menor perplexidade (**27.22**);
+- Desempenho superior ao Pythia e BART-Tiny.
+
+### Avaliação Técnica
+
+Apesar de não apresentar correspondência textual detectável pelas métricas BLEU e ROUGE-L, o modelo demonstrou capacidade razoável de modelagem probabilística da linguagem.
+
+Isso indica que o modelo produz sequências linguisticamente plausíveis, embora não alinhadas às respostas de referência utilizadas no benchmark.
+
+---
+
+## 🥉 GPT-NEO-125M - EleutherAI
+
+### Destaques
+
+- Pequena pontuação em ROUGE-L;
+- Desempenho intermediário.
+
+### Avaliação Técnica
+
+A elevada perplexidade (**2317**) indica dificuldades substanciais em capturar a distribuição textual presente no conjunto de avaliação.
+
+Embora tenha apresentado uma pequena correspondência estrutural com as referências, seu comportamento geral foi significativamente inferior ao dos dois primeiros colocados.
+
+---
+
+## 4º Lugar — BART-Tiny
+
+### Destaques
+
+- BLEU nulo;
+- ROUGE-L nulo;
+- Maior perplexidade observada.
+
+### Avaliação Técnica
+
+Os resultados indicam que a versão reduzida da arquitetura BART utilizada no experimento não possui capacidade representacional suficiente para a complexidade da tarefa avaliada.
+
+---
+
+# Ranking Final
+
+| Posição | Modelo |
+|----------|---------|
+| 🥇 1º | Flan-T5-Small |
+| 🥈 2º | Qwen2-0.5B |
+| 🥉 3º | GPT-NEO-125M |
+| 4º | BART-Tiny |
+
+---
+
+# Veredito Técnico
+
+A análise conjunta das métricas evidencia que o **Flan-T5-Small** apresentou o melhor desempenho global entre todos os modelos avaliados.
+
+Os principais fatores que sustentam essa conclusão são:
+
+- Menor perplexidade do experimento (**1.66**);
+- Maior valor de ROUGE-L;
+- Maior estabilidade estatística;
+- Melhor capacidade de modelagem linguística.
+
+Embora BLEU e ROUGE-L tenham apresentado valores extremamente baixos para todos os modelos, a Perplexidade demonstrou forte capacidade de diferenciação, tornando-se a métrica mais relevante para este conjunto experimental.
+
+Os resultados indicam que o Flan-T5-Small foi o único modelo capaz de representar adequadamente a distribuição textual presente no dataset, demonstrando maior consistência e menor incerteza durante o processo de geração.
+
+---
+
+# Conclusão
+
+Com base nas evidências quantitativas obtidas, conclui-se que o **Flan-T5-Small** constitui o modelo base mais adequado para servir como baseline do projeto.
+
+Sua superioridade em termos de modelagem probabilística e aderência textual sugere que futuras etapas de:
+
+- Fine-tuning;
+- Ajuste de hiperparâmetros;
+- Treinamento supervisionado adicional;
+- Avaliações qualitativas;
+
+devem utilizar o Flan-T5-Small como principal referência experimental.
+
+Em síntese, os resultados demonstram que arquiteturas menores, porém instruídas e especializadas, podem superar modelos maiores quando avaliadas em tarefas específicas de geração textual.
+---
+
+## 🚀 Instalação
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-projeto.git
+cd seu-projeto
+```
+
+### 2. Criar ambiente virtual
+
+Linux/Mac:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### 3. Instalar dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🔥 Fine-Tuning com LoRA
+
+O notebook principal para treinamento é:
+
+```bash
+02_lora.ipynb
+```
+
+Nele são realizados:
+
+- Carregamento do dataset
+- Tokenização
+- Configuração LoRA
+- Treinamento
+- Salvamento dos adaptadores
+
+Os resultados são armazenados em:
+
+```bash
+train/
+```
+
+---
+
+## 📚 Pipeline RAG
+
+O notebook:
+
+```bash
+01_rag.ipynb
+```
+
+executa:
+
+1. Ingestão de documentos
+2. Processamento de texto
+3. Vetorização
+4. Criação do índice vetorial
+5. Busca semântica
+
+---
+
+## 📈 Avaliação dos Modelos
+
+O notebook:
+
+```bash
+03_avaliacao_modelo_finetuned.ipynb
+```
+
+permite:
+
+- Comparar modelos treinados
+- Medir tempo de inferência
+- Avaliar qualidade das respostas
+- Gerar métricas de benchmark
+
+---
+
+## Estrutura de Datasets
+
+O projeto utiliza três datasets principais em formato `.jsonl`. Abaixo, detalhamos o conteúdo e o propósito de cada um:
+
+### 1. `dataset_gerado.jsonl`
+Este arquivo contém um conjunto estruturado de instruções e perguntas formatadas para treino. É o arquivo mais robusto para a base de conhecimento do modelo.
+- **Formato:** `{"Instruction": "...", "Output": "..."}`
+- **Conteúdo:** Perguntas sobre Psicologia Educacional formuladas com base em conceitos teóricos, incluindo:
+    - O objeto de estudo da Psicologia Educacional.
+    - A importância da perspectiva integrativa.
+    - Influência de métodos experimentais (Wundt) na psicologia.
+    - Dinâmicas familiares e competências socioemocionais.
+
+### 2. `dataset_treino.jsonl`
+Focado na explicabilidade teórica, este arquivo contém pares de entrada e saída para tarefas de explicação de conceitos.
+- **Formato:** `{"instruction": "...", "input": "...", "output": "..."}`
+- **Conteúdo:** Trechos teóricos sobre Behaviorismo, Pavlov, Condicionamento, Abordagens Cognitivistas (Ausubel, Bruner, Vygotsky) e Processamento de Informação.
+
+### 3. `dataset_final.jsonl`
+Contém metadados bibliográficos e estruturais do material base da disciplina.
+- **Formato:** `{"Instruction": "...", "Output": "..."}`
+- **Conteúdo:** Informações sobre o livro "Psicologia Educacional: desenvolvimento e aprendizagem" de Nicia L. D. da Silveira, incluindo equipe de coordenação e metadados de catálogo.
+
+
+## 🌐 API FastAPI
+
+O servidor principal encontra-se em:
+
+```bash
+main.py
+```
+
+Executar:
+
+```bash
+uvicorn main:app --reload
+```
+
+A API ficará disponível em:
+
+```text
+http://localhost:8000
+```
+
+Documentação automática:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+## 🖥️ Interface Web
+
+A interface de usuário está localizada em:
+
+```bash
+static/index.html
+```
+
+Funcionalidades:
+
+- Chat interativo
+- Comunicação com a API FastAPI
+- Exibição das respostas do modelo
+
+---
+
+## 📦 Dependências Principais
+
+- Python 3.10+
+- Transformers
+- PEFT
+- Torch
+- Datasets
+- Accelerate
+- FastAPI
+- Uvicorn
+- SentenceTransformers
+- FAISS
+
+---
+
+## Estrutura dos Adaptadores LoRA
+
+Cada modelo treinado possui:
+
+```text
+adapter_config.json
+```
+
+Configurações do LoRA.
+
+```text
+adapter_model.safetensors
+```
+
+Pesos treinados.
+
+```text
+tokenizer.json
+tokenizer_config.json
+```
+
+Arquivos de tokenização (quando aplicável).
+
+---
+
+## Melhorias Futuras
+
+- Implementação de quantização (4-bit / 8-bit)
+- Deploy com Docker
+- Integração com banco vetorial dedicado
+- Avaliação automática utilizando LLM-as-a-Judge
+- Monitoramento de inferência
+
+---
+
+## Licença
+
+Este projeto é destinado a fins acadêmicos e de pesquisa. Ajuste a licença conforme a necessidade do seu ambiente de desenvolvimento.
+
+---
+
+## Autor
+**José Moisés Lopes da Silva** *Acadêmico em Engenharia da Computação - UFRN* [🔗 LinkedIn](https://www.linkedin.com/in/josé-moisés/) | [📧 josemoiseslopesdasilva580@gmail.com](mailto:seuemail@email.com)

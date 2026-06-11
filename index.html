@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PSICO EDU | CORE_INTERFACE</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --sidebar: #1e293b;
+            --accent-blue: #38bdf8;
+            --accent-green: #22c55e;
+            --text: #e2e8f0;
+            --bubble-ai: #334155;
+            --bubble-user: #0ea5e9;
+        }
+        body { margin: 0; background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', Roboto, sans-serif; display: flex; height: 100vh; }
+        
+        nav { width: 280px; background: var(--sidebar); border-right: 1px solid #334155; padding: 40px 25px; display: flex; flex-direction: column; justify-content: space-between; }
+        .sidebar-content h2 { color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 5px; }
+        .sidebar-content p { color: #94a3b8; font-size: 0.9rem; line-height: 1.4; }
+        
+        main { flex: 1; display: flex; flex-direction: column; padding: 50px; max-width: 900px; margin: auto; }
+        #chat-window { flex: 1; overflow-y: auto; margin-bottom: 30px; display: flex; flex-direction: column; gap: 20px; }
+        
+        .bubble { padding: 20px; border-radius: 12px; font-size: 1.1rem; line-height: 1.6; max-width: 90%; }
+        .ai-bubble { background: var(--bubble-ai); border-left: 4px solid var(--accent-blue); align-self: flex-start; }
+        .user-bubble { background: var(--bubble-user); color: white; align-self: flex-end; border-radius: 12px 12px 0 12px; }
+        
+        .controls { display: flex; gap: 15px; background: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; }
+        select { background: #0f172a; color: var(--accent-blue); border: 1px solid #475569; padding: 10px; cursor: pointer; border-radius: 6px; }
+        input { flex: 1; background: transparent; border: none; color: white; font-size: 1rem; outline: none; }
+        button { background: var(--accent-blue); border: none; color: #0f172a; padding: 10px 25px; cursor: pointer; font-weight: bold; border-radius: 6px; transition: 0.3s; }
+        button:hover { filter: brightness(1.2); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="sidebar-content">
+        <h2>PSICO EDU</h2>
+        <p>CORE_INTERFACE_V1.0</p>
+        <br>
+        <p><strong>CREATED BY:</strong><br>José Moisés</p>
+        <p><strong>STUDENT:</strong><br>Computer Engineering</p>
+    </div>
+    <div style="font-size: 0.7rem; color: #64748b;">SYSTEM_STATUS: ONLINE</div>
+</nav>
+
+<main>
+    <div id="chat-window">
+        <div class="bubble ai-bubble">PSICO EDU iniciado. Como posso ajudar com seus estudos hoje?</div>
+    </div>
+
+    <div class="controls">
+        <select id="modelSelect">
+            <option value="modelo_3">QWEN_CORE_0.5B</option>
+            <option value="modelo_1">FLAN_T5</option>
+            <option value="modelo_2">BART_BASE</option>
+            <option value="modelo_4">GPT_NEO</option>
+        </select>
+        <input type="text" id="userInput" placeholder="RUN_QUERY >>" onkeydown="if(event.key==='Enter') askAI()">
+        <button onclick="askAI()">EXECUTE</button>
+    </div>
+</main>
+
+<script>
+async function askAI() {
+    const input = document.getElementById("userInput");
+    const chatWindow = document.getElementById("chat-window");
+    if (!input.value) return;
+
+    chatWindow.innerHTML += `<div class="bubble user-bubble">${input.value}</div>`;
+    const query = input.value;
+    input.value = "";
+
+    const aiBubble = document.createElement("div");
+    aiBubble.className = "bubble ai-bubble";
+    chatWindow.appendChild(aiBubble);
+
+    try {
+        const res = await fetch('/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: query, modelo_id: document.getElementById("modelSelect").value })
+        });
+        const data = await res.json();
+        
+        let rawText = data.resposta.replace(/\n/g, '<br>');
+        let i = 0;
+        function typeWriter() {
+            if (i < rawText.length) {
+                if (rawText.substr(i, 4) === '<br>') {
+                    aiBubble.innerHTML += '<br>';
+                    i += 4;
+                } else {
+                    aiBubble.innerHTML += rawText.charAt(i);
+                    i++;
+                }
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+                setTimeout(typeWriter, 15);
+            }
+        }
+        typeWriter();
+    } catch {
+        aiBubble.innerHTML = "SYSTEM_FAILURE: Connection lost.";
+    }
+}
+</script>
+</body>
+</html>
