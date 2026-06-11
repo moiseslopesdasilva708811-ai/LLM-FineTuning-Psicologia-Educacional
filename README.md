@@ -17,13 +17,11 @@
     <img src="https://img.shields.io/badge/👤_Autor-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Autor">
   </a>
 </p>
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=FFFFFF&center=true&vCenter=true&lines=PsicoEdu-LLM;Agente+Especialista;Fine-Tuning+LoRA+%2B+RAG" alt="Typing Animation" />
+
 > [!IMPORTANT]
 > Este projeto tem como objetivo realizar o treinamento, ajuste fino (Fine-Tuning) e avaliação de modelos de linguagem utilizando a técnica **LoRA (Low-Rank Adaptation)**, permitindo adaptar modelos pré-treinados para tarefas específicas de forma eficiente. Neste contexto, este trabalho explora o ciclo de vida completo de um sistema de
 RAG integrado ao ajuste fino eficiente via Low-Rank Adaptation (LoRA). A proposta visa ir além da arquitetura de busca semântica tradicional através da especialização
 de pesos, permitindo que modelos de linguagem ajustem seu comportamento ao domínio em questão.
-> 
-específico definido pelo documento base utilizado
 
 > [!TIP]
 > **Precisa de ajuda com o código?** Acesse a pasta `./notebooks/` para encontrar um guia modular e detalhado sobre todo o fluxo de implementação deste projeto.
@@ -81,6 +79,8 @@ C:.
 │       dataset_gerado.jsonl
 │       dataset_gerado_curado.jsonl
 │
+├───dataset
+│       20260042690.pdf
 ├───images
 │       Diagrama_de_sequência_da_Aplicação.png
 │       fluxograma_vertical.png
