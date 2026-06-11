@@ -2,7 +2,7 @@
 
 <p align="center" position="fixed">
   <a href="#objetivos"><img src="https://img.shields.io/badge/_Objetivos-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
-  <a href="#instalacao"><img src="https://img.shields.io/badge/_Analise-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
+  <a href="#instalacao"><img src="https://img.shields.io/badge/_Instalação-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Objetivos">
   </a>
   <a href="#estrutura">
     <img src="https://img.shields.io/badge/_Estrutura-2B2B2B?style=for-the-badge&logoColor=white&labelColor=000000" alt="Estrutura">
