@@ -1,0 +1,20 @@
+# Usa uma imagem base Python leve
+FROM python:3.10
+
+# Define o diretório de trabalho
+WORKDIR /code
+
+# Copia o seu requirements
+COPY requirements.txt .
+
+# Instala as dependências
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copia o resto do projeto (o seu código, os modelos, etc)
+COPY . .
+
+# Expõe a porta que o FastAPI usa
+EXPOSE 7860
+
+# Comando para rodar a aplicação
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
