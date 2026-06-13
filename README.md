@@ -235,7 +235,7 @@ Um passo importante para um projeto envolvendo um chat IA inteligente é conecta
 O conjunto de treinamento encontra-se em:
 
 ```bash
-dataset/dataset_gerado_curado.jsonl
+dataset/dataset_treino.jsonl     # depois troquei pelo dataset_curado para ver qual seria o melhor para responder as perguntas
 ```
 
 Formato esperado:
