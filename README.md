@@ -30,9 +30,11 @@
 </div>
 
 
-<a align="center" href="https://medium.com/@moiseslopesdasilva708811/desenvolvimento-de-um-agente-especialista-em-psicologia-educacional-implementa%C3%A7%C3%A3o-de-rag-e-629914adae69">
-  <img src="https://img.shields.io/badge/Leia_o_Artigo-Medium-black?style=for-the-badge&logo=medium&logoColor=white" alt="Artigo no Medium">
-</a>
+<p align="center">
+  <a href="https://medium.com/@moiseslopesdasilva708811/desenvolvimento-de-um-agente-especialista-em-psicologia-educacional-implementa%C3%A7%C3%A3o-de-rag-e-629914adae69">
+    <img src="https://img.shields.io/badge/LEIA_O_ARTIGO_COMPLETO_NO_MEDIUM-000000?style=for-the-badge&logo=medium&logoColor=white" alt="Link para o Medium">
+  </a>
+</p>
 
 > Para acessar cada parte nesse repositório, clique nos botões de acesso acima
 
