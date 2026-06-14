@@ -272,7 +272,7 @@ Foram avaliados os seguintes modelos:
 - Flan-T5-Small
 - BART-Tiny
 - Qwen2-0.5B
-- Pythia (EleutherAI)
+- EleutherAI
 
 As métricas utilizadas foram:
 
@@ -292,7 +292,7 @@ Observei cada ponto gerado nesses notebooks em que as análises foram precisas e
 | **Flan-T5-Small** | 0.0000 | **0.0080** | **1.66** |
 | **BART-Tiny** | 0.0000 | 0.0000 | 50253.99 |
 | **Qwen2-0.5B** | 0.0000 | 0.0000 | 27.22 |
-| **Pythia (EleutherAI)** | 0.0000 | 0.0034 | 2317.00 |
+| **GPT-NEO-125M** | 0.0000 | 0.0034 | 2317.00 |
 
 ---
 
@@ -361,7 +361,7 @@ A Perplexidade foi a métrica que apresentou maior capacidade de discriminação
 |----------|-------------:|
 | Flan-T5-Small | **1.66** |
 | Qwen2-0.5B | 27.22 |
-| Pythia (EleutherAI) | 2317.00 |
+| GPT-NEO-125M | 2317.00 |
 | BART-Tiny | 50253.99 |
 
 ### Fundamentação Teórica documentada nesse processo
@@ -408,7 +408,7 @@ Os resultados sugerem que sua arquitetura encoder-decoder baseada em T5, aliada 
 ### Destaques
 
 - Segunda menor perplexidade (**27.22**);
-- Desempenho superior ao Pythia e BART-Tiny.
+- Desempenho superior ao GPT-NEO-125M e BART-Tiny.
 
 ### Avaliação Técnica
 
