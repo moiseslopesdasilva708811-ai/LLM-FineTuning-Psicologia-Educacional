@@ -698,6 +698,21 @@ Arquivos de tokenização (quando aplicável).
 Este projeto é destinado a fins acadêmicos e de pesquisa. Ajuste a licença conforme a necessidade do seu ambiente de desenvolvimento.
 
 ---
+---
+### REFERÊNCIAS
+
+[1] THOMAS, George B.; WEIR, Maurice D.; HASS, Joel. **Cálculo**. 12. ed. São Paulo: Pearson Education do Brasil, 2012.
+
+[2] WINTERLE, Paulo. **Vetores e Geometria Analítica**. 2. ed. São Paulo: Pearson Education do Brasil, 2004.
+
+[3] KODAKANDLA, N. **Scaling AI responsibly: Leveraging MLOps for sustainable machine learning deployments**. International Journal of Science and Research Archive, v. 13, n. 1, p. 3447–3455, 2024.
+
+[4] BAYRAM, F.; AHMED, B. S. **Towards trustworthy machine learning in production: An overview of the robustness in mlops approach**. ACM Computing Surveys, v. 57, n. 5, p. 1–35, 2025.
+
+[5] HANCHUK, D. O.; SEMERIKOV, S. O. **Implementing MLOps practices for effective machine learning model deployment: A meta synthesis**. In: AREdu, 2024, p. 329–337, 2024.
+
+---
+
 
 ## Autor
 **José Moisés Lopes da Silva** *Acadêmico em Engenharia da Computação - UFRN* [🔗 LinkedIn](https://www.linkedin.com/in/josé-moisés/) | [📧 josemoiseslopesdasilva580@gmail.com](mailto:seuemail@email.com)
