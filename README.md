@@ -497,8 +497,8 @@ Em síntese, os resultados demonstram que arquiteturas menores, porém instruíd
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
-cd seu-projeto
+git clone https://github.com/moiseslopesdasilva708811-ai/LLM-FineTuning-Psicologia-Educacional.git
+cd LLM-FineTuning-Psicologia-Educacional
 ```
 
 ### 2. Criar ambiente virtual
