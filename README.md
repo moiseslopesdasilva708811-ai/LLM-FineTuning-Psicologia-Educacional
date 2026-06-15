@@ -196,6 +196,8 @@ C:.
 <a name="demo"></a>
 
 ## Demo do Projeto - Análise dos Modelos Finetunados (Funcionalidade na aplicação mais abaixo)
+Ao final, a tela desenvolvida ficou exatamente desta forma abaixo.
+<img src="./Tela%20funcional%20completa.png" alt="Autor">
 A próxima demonstração designa a funcionalidade a qual a aplicação conseguiu desenvolver no modelo Qwen2-0.5B, sem nenhuma alucinação, tudo com base no que estava documentado
 no PDF disponível na pasta ./docs/
 
