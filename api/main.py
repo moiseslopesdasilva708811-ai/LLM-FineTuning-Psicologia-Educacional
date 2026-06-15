@@ -18,7 +18,7 @@ MODEL_REGISTRY = {
     "base_1": ["google/flan-t5-small", None, 1],
     "base_2": ["sshleifer/bart-tiny-random", None, 1],
     "base_3": ["Qwen/Qwen2-0.5B", None, 0],
-    "base_4": ["EleutherAI/gpt-neo-125M", None, 0]
+    "base_4": ["EleutherAI/gpt-neo-125M", None, 0],
     
     # modelos fine-tunados
     "modelo_1": ["google/flan-t5-small", "./train/lora_seq2seq_model_1", 1],
