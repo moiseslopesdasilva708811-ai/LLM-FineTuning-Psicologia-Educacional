@@ -195,9 +195,10 @@ C:.
 
 <a name="demo"></a>
 
-## Demo do Projeto - Versão 1.0   -Beta(Em início de produção, usada para teste inicial)
+## Demo do Projeto - Análise dos Modelos Finetunados (Funcionalidade na aplicação mais abaixo)
 A próxima demonstração designa a funcionalidade a qual a aplicação conseguiu desenvolver no modelo Qwen2-0.5B, sem nenhuma alucinação, tudo com base no que estava documentado
 no PDF disponível na pasta ./docs/
+
 ![Demo](./video%20Qwen%20model%20final.gif)
 
 Mais abaixo, está presente o teste da aplicação agora empregado aos modelos BART, Flan-T5-small e GPT-Neo-125M. Notei que o BART alucinou e por isso decidi descartar a possibilidade de usar ele como modelo principal deste trabalho. O modelo Flan-T5-small por ter uma base menor, escreveu uma pequena resposta como é possível ver na demonstração a seguir e o GPT-neo-125M conseguiu trazer a resposta de forma adequada também ao projeto.
@@ -208,10 +209,8 @@ Um passo importante para um projeto envolvendo um chat IA inteligente é conecta
 
 ![Demo](./FASTAPI%20funcionando.gif)
 
-## Foi feita uma atualização na aplicação deixando com uma experiência melhor ao usuário, visto mais abaixo
-| Versão Desktop | Versão Mobile |
-| :---: | :---: |
-| ![Versão Final 2.0](https://i.imgur.com/RBsMzXA.png) | ![Demo Celular](Demo%20Celular%20aplicação.gif) |
+## Demo do Projeto - Análise dos Modelos Bases - NÃO Finetunados (Funcionalidade na aplicação mais abaixo)
+
 
 ## Gráficos de Convergência do treinamento dos modelos
 
