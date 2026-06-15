@@ -695,6 +695,18 @@ Arquivos de tokenização (quando aplicável).
 
 ---
 
+
+> [!NOTE]
+>
+> ### 🏗️ Decisões de Engenharia
+>
+> Este projeto foi estruturado com foco em **coesão arquitetural**, **manutenibilidade** e **facilidade de validação experimental**.
+>
+> A combinação entre **RAG (ChromaDB)**, **especialização via LoRA**, **API desacoplada em FastAPI** e uma **interface web hospedada** permite que cada componente seja desenvolvido, testado e evoluído de forma independente.
+>
+> Essa abordagem reflete uma preocupação com critérios de engenharia frequentemente exigidos em ambientes acadêmicos e profissionais, priorizando não apenas o desempenho do modelo, mas também a qualidade da solução como um todo.
+
+
 ## Licença
 
 Este projeto é destinado a fins acadêmicos e de pesquisa. Ajuste a licença conforme a necessidade do seu ambiente de desenvolvimento.
