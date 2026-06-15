@@ -14,6 +14,13 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Registro de modelos
 MODEL_REGISTRY = {
+    # modelos base
+    "base_1": ["google/flan-t5-small", None, 1],
+    "base_2": ["sshleifer/bart-tiny-random", None, 1],
+    "base_3": ["Qwen/Qwen2-0.5B", None, 0],
+    "base_4": ["EleutherAI/gpt-neo-125M", None, 0]
+    
+    # modelos fine-tunados
     "modelo_1": ["google/flan-t5-small", "./train/lora_seq2seq_model_1", 1],
     "modelo_2": ["sshleifer/bart-tiny-random", "./train/lora_tiny_bart_final", 1],
     "modelo_3": ["Qwen/Qwen2-0.5B", "./train/modelo_final_lora", 0],
@@ -26,6 +33,7 @@ class ChatRequest(BaseModel):
     query: str
     modelo_id: str
 
+# função para carregar todos os modelos 
 def get_model(modelo_id: str):
     if modelo_id not in loaded_models:
         loaded_models.clear()
@@ -40,7 +48,12 @@ def get_model(modelo_id: str):
         else:
             base_model = AutoModelForCausalLM.from_pretrained(base_id, low_cpu_mem_usage=True)
             
-        model = PeftModel.from_pretrained(base_model, adapter_path).to("cpu")
+        # AQUI ESTÁ A CORREÇÃO:
+        if adapter_path:
+            model = PeftModel.from_pretrained(base_model, adapter_path).to("cpu")
+        else:
+            model = base_model.to("cpu") # Carrega apenas o base puro
+            
         loaded_models[modelo_id] = (tokenizer, model, m_type)
     return loaded_models[modelo_id]
 
