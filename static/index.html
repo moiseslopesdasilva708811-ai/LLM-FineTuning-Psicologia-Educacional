@@ -51,12 +51,25 @@
     </div>
 
     <div class="controls">
-        <select id="modelSelect">
-            <option value="modelo_3">QWEN_CORE_0.5B</option>
-            <option value="modelo_1">FLAN_T5</option>
-            <option value="modelo_2">BART_BASE</option>
-            <option value="modelo_4">GPT_NEO</option>
+       <select id="modelSelect">
+            <optgroup label="QWEN (Causal)">
+                <option value="modelo_3">QWEN (Fine-Tuned)</option>
+                <option value="base_3">QWEN (Base)</option>
+            </optgroup>
+            <optgroup label="FLAN-T5 (Seq2Seq)">
+                <option value="modelo_1">FLAN-T5 (Fine-Tuned)</option>
+                <option value="base_1">FLAN-T5 (Base)</option>
+            </optgroup>
+            <optgroup label="BART (Seq2Seq)">
+                <option value="modelo_2">BART (Fine-Tuned)</option>
+                <option value="base_2">BART (Base)</option>
+            </optgroup>
+            <optgroup label="GPT-NEO (Causal)">
+                <option value="modelo_4">GPT-NEO (Fine-Tuned)</option>
+                <option value="base_4">GPT-NEO (Base)</option>
+            </optgroup>
         </select>
+        
         <input type="text" id="userInput" placeholder="RUN_QUERY >>" onkeydown="if(event.key==='Enter') askAI()">
         <button onclick="askAI()">EXECUTE</button>
     </div>
