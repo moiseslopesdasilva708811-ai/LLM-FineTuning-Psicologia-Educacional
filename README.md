@@ -30,19 +30,15 @@
 </div>
 
 
-## Acompanhe o projeto no link do YouTube abaixo
-
 <div align="center">
 
-## 🎥 Demonstração do Projeto
-
 <a href="https://youtu.be/ENGRShkkhuM" target="_blank">
-  <img src="images/demo_thumbnail.png" alt="Demonstração do Agente de Psicologia" width="700" style="border-radius: 10px; border: 2px solid #4A90E2;">
+  <img src="https://img.youtube.com/vi/ENGRShkkhuM/maxresdefault.jpg" alt="Demonstração do Agente" width="700">
 </a>
 
-<p><i>Clique na imagem para assistir ao vídeo de demonstração no YouTube.</i></p>
-
 </div>
+
+
 <p align="center">
   <a href="https://medium.com/@moiseslopesdasilva708811/desenvolvimento-de-um-agente-especialista-em-psicologia-educacional-implementa%C3%A7%C3%A3o-de-rag-e-629914adae69">
     <img src="https://img.shields.io/badge/LEIA_O_ARTIGO_COMPLETO_NO_MEDIUM-000000?style=for-the-badge&logo=medium&logoColor=white" alt="Link para o Medium">
