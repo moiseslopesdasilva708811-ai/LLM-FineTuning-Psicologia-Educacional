@@ -34,11 +34,13 @@
 
 <div align="center">
 
-Confira o vídeo de demonstração do agente especialista em Psicologia Educacional em funcionamento:
+## 🎥 Demonstração do Projeto
 
-<br> [![Clique aqui para assistir no YouTube](https://img.shields.io/badge/ASSISTIR_DEMONSTRAÇÃO_NO_YOUTUBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ENGRShkkhuM?is=OARxv9RDymG3tBzs)
+<a href="https://youtu.be/ENGRShkkhuM" target="_blank">
+  <img src="https://img.youtube.com/vi/ENGRShkkhuM/0.jpg" alt="Clique para assistir a demonstração" width="600">
+</a>
 
-<p><i>O vídeo apresenta o fluxo completo: desde a consulta via RAG até a resposta gerada pelos modelos base e fine-tunados.</i></p>
+<p><i>Clique na imagem acima para assistir à demonstração do agente especialista em Psicologia Educacional no YouTube.</i></p>
 
 </div>
 <p align="center">
