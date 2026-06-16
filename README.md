@@ -37,10 +37,10 @@
 ## 🎥 Demonstração do Projeto
 
 <a href="https://youtu.be/ENGRShkkhuM" target="_blank">
-  <img src="https://img.youtube.com/vi/ENGRShkkhuM/0.jpg" alt="Clique para assistir a demonstração" width="600">
+  <img src="images/demo_thumbnail.png" alt="Demonstração do Agente de Psicologia" width="700" style="border-radius: 10px; border: 2px solid #4A90E2;">
 </a>
 
-<p><i>Clique na imagem acima para assistir à demonstração do agente especialista em Psicologia Educacional no YouTube.</i></p>
+<p><i>Clique na imagem para assistir ao vídeo de demonstração no YouTube.</i></p>
 
 </div>
 <p align="center">
