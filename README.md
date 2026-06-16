@@ -32,7 +32,7 @@
 
 <div align="center">
 
-## 🎥 Demonstração do Projeto
+## Assista uma demonstração rápida do funcionamento do projeto
 
 <a href="https://youtu.be/ENGRShkkhuM" target="_blank">
   <img src="clique aqui para assistir.png" alt="Demonstração do Agente de Psicologia" width="700" style="border-radius: 10px;">
