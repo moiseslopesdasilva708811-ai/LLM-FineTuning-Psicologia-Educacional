@@ -29,6 +29,14 @@
   <p><i>Acesse o link acima para interagir diretamente com a API e os modelos configurados.</i></p>
 </div>
 
+<a name="demo"></a>
+## Demonstração do Projeto
+
+Confira o vídeo de demonstração do agente especialista em Psicologia Educacional em funcionamento:
+
+[![Clique aqui para assistir no YouTube](https://img.shields.io/badge/ASSISTIR_DEMONSTRAÇÃO_NO_YOUTUBE-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](LINK_DO_SEU_VIDEO_AQUI)
+
+> O vídeo apresenta o fluxo completo: desde a consulta via RAG até a resposta gerada pelo modelo fine-tunado (Qwen2-0.5B), demonstrando a ausência de alucinações e a precisão baseada na documentação técnica.
 
 <p align="center">
   <a href="https://medium.com/@moiseslopesdasilva708811/desenvolvimento-de-um-agente-especialista-em-psicologia-educacional-implementa%C3%A7%C3%A3o-de-rag-e-629914adae69">
