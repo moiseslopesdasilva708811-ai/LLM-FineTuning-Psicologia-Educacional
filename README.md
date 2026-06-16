@@ -32,9 +32,13 @@
 
 <div align="center">
 
+## 🎥 Demonstração do Projeto
+
 <a href="https://youtu.be/ENGRShkkhuM" target="_blank">
-  <img src="https://img.youtube.com/vi/ENGRShkkhuM/maxresdefault.jpg" alt="Demonstração do Agente" width="700">
+  <img src="clique aqui para assistir.png" alt="Demonstração do Agente de Psicologia" width="700" style="border-radius: 10px;">
 </a>
+
+<p><i>Clique na imagem para assistir à demonstração técnica no YouTube.</i></p>
 
 </div>
 
